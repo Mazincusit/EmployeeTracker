@@ -6,7 +6,10 @@
     <title>Title</title>
 </head>
 <body>
-    <h3>Save Employee</h3>
+    <!-- Header -->
+    <jsp:include page="include/header.jsp" />
+
+    <h3><i>Save Employee:</i></h3>
 
     <form:form action="save" modelAttribute="employee" method="post">
         <form:hidden path="id" />
@@ -43,5 +46,8 @@
     <p>
         <a href="${pageContext.request.contextPath}/employee/list">Back to List</a>
     </p>
+
+    <!-- Footer -->
+    <jsp:include page="include/footer.jsp" />
 </body>
 </html>

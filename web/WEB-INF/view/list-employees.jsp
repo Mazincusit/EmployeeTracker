@@ -6,7 +6,8 @@
     <title>List Employees</title>
 </head>
 <body>
-    <h2>Employee Tracker</h2>
+    <!-- Header -->
+    <jsp:include page="include/header.jsp" />
 
     <!-- Button: Add Employee -->
     <input type="button" value="Add Employee"
@@ -51,5 +52,8 @@
             </tr>
         </c:forEach>
     </table>
+
+    <!-- Footer -->
+    <jsp:include page="include/footer.jsp" />
 </body>
 </html>
