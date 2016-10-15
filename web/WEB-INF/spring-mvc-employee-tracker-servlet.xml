@@ -49,6 +49,10 @@
 			<props>
 		    	<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 		     	<prop key="hibernate.show_sql">true</prop>
+
+				<prop key="hibernate.connection.Charset">UTF-8</prop>
+				<prop key="hibernate.connection.CharacterEncoding">UTF-8</prop>
+				<prop key="hibernate.connection.useUnicode">true</prop>
 			</props>
 		</property>
    </bean>
