@@ -1,16 +1,17 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>List Employees</title>
+    <title><spring:message code="label.listEmployees" /></title>
 </head>
 <body>
     <!-- Header -->
     <jsp:include page="include/header.jsp" />
 
     <!-- Button: Add Employee -->
-    <input type="button" value="Add Employee"
+    <spring:message code="label.addEmployee" var="addEmployee" />
+    <input type="button" value="${addEmployee}"
         onclick="window.location.href='create';"
         class="add-employee-button"
     />
@@ -18,11 +19,11 @@
     <!-- Table: List of Employees -->
     <table>
         <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Position</th>
-            <th>Email</th>
-            <th>Action</th>
+            <th><spring:message code="label.firstName" /></th>
+            <th><spring:message code="label.lastName" /></th>
+            <th><spring:message code="label.position" /></th>
+            <th><spring:message code="label.email" /></th>
+            <th><spring:message code="label.action" /></th>
         </tr>
 
         <c:forEach var="employee" items="${employees}">
@@ -43,11 +44,14 @@
                     </c:url>
 
                     <!-- use and display update url -->
-                    <a href="${updateUrl}">Update</a>
+                    <a href="${updateUrl}"><spring:message code="label.update" /></a>
                      |
                     <!-- use and display delete url -->
+                    <spring:message code="label.areYouSure" var="areYouSure" />
                     <a href="${deleteUrl}"
-                        onclick="if (!(confirm('Are you sure want to delete this employee?'))) return false">Delete</a>
+                        onclick="if (!(confirm('${areYouSure}'))) return false">
+                        <spring:message code="label.delete" />
+                    </a>
                 </td>
             </tr>
         </c:forEach>
