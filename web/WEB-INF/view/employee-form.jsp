@@ -28,7 +28,11 @@
 
                 <tr>
                     <td><label><spring:message code="label.position" />:</label></td>
-                    <td><form:input path="position" /></td>
+                    <td>
+                        <form:select path="position">
+                            <form:options items="${positions}" />
+                        </form:select>
+                    </td>
                 </tr>
 
                 <tr>

@@ -4,6 +4,7 @@ import com.employee_tracker.entity.Employee;
 import com.employee_tracker.service.EmployeeService;
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,9 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     private Logger logger = Logger.getLogger(getClass());
+
+    @Value("${attribute.positions}")
+    private String[] positions;
 
     @GetMapping("/list")
     public String listEmployees(Model model) {
@@ -42,6 +46,9 @@ public class EmployeeController {
         // add employee to model
         model.addAttribute("employee", employee);
 
+        // add positions to model
+        model.addAttribute("positions", positions);
+
         return "employee-form";
     }
 
@@ -62,6 +69,9 @@ public class EmployeeController {
 
         // add employee to model
         model.addAttribute("employee", employee);
+
+        // add positions to model
+        model.addAttribute("positions", positions);
 
         return "employee-form";
     }
