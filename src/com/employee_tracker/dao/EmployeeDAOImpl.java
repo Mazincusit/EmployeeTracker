@@ -12,56 +12,56 @@ import java.util.List;
 @Repository
 public class EmployeeDAOImpl implements EmployeeDAO {
 
-    @Autowired
-    private SessionFactory sessionFactory;
+	@Autowired
+	private SessionFactory sessionFactory;
 
-    @Override
-    public List<Employee> getEmployees() {
-        // get current hibernate session
-        Session session = sessionFactory.getCurrentSession();
+	@Override
+	public List<Employee> getEmployees() {
+		// get current hibernate session
+		Session session = sessionFactory.getCurrentSession();
 
-        // create a query
-        Query<Employee> query =
-                session.createQuery("from Employee", Employee.class);
+		// create a query
+		Query<Employee> query =
+				session.createQuery("from Employee", Employee.class);
 
-        // get results
-        List<Employee> employees = query.getResultList();
+		// get results
+		List<Employee> employees = query.getResultList();
 
-        // return results
-        return employees;
-    }
+		// return results
+		return employees;
+	}
 
-    @Override
-    public void saveEmployee(Employee employee) {
-        // get current hibernate session
-        Session session = sessionFactory.getCurrentSession();
+	@Override
+	public void saveEmployee(Employee employee) {
+		// get current hibernate session
+		Session session = sessionFactory.getCurrentSession();
 
-        // save employee
-        session.saveOrUpdate(employee);
-    }
+		// save employee
+		session.saveOrUpdate(employee);
+	}
 
-    @Override
-    public Employee getEmployee(int id) {
-        // get current hibernate session
-        Session session = sessionFactory.getCurrentSession();
+	@Override
+	public Employee getEmployee(int id) {
+		// get current hibernate session
+		Session session = sessionFactory.getCurrentSession();
 
-        // retrieve employee from database
-        Employee employee = session.get(Employee.class, id);
+		// retrieve employee from database
+		Employee employee = session.get(Employee.class, id);
 
-        // return result
-        return employee;
-    }
+		// return result
+		return employee;
+	}
 
-    @Override
-    public void deteleEmployee(int id) {
-        // get current hibernate session
-        Session session = sessionFactory.getCurrentSession();
+	@Override
+	public void deteleEmployee(int id) {
+		// get current hibernate session
+		Session session = sessionFactory.getCurrentSession();
 
-        // retrieve employee from database
-        Employee employee = session.get(Employee.class, id);
+		// retrieve employee from database
+		Employee employee = session.get(Employee.class, id);
 
-        // delete employee
-        session.delete(employee);
-    }
+		// delete employee
+		session.delete(employee);
+	}
 
 }
