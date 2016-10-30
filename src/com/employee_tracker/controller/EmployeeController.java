@@ -7,8 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -53,12 +56,23 @@ public class EmployeeController {
 	}
 
 	@PostMapping("/save")
-	public String save(@ModelAttribute("employee") Employee employee) {
-		logger.info("saving employee: " + employee);
+	public ModelAndView save(@Valid @ModelAttribute("employee") Employee employee, BindingResult result) {
+		if (result.hasErrors()) {
+			logger.info("Ooops! You've got the errors");
 
+			// create ModelAndView object
+			ModelAndView modelAndView = new ModelAndView("employee-form");
+
+			// add positions to ModelAndView object
+			modelAndView.addObject("positions", positions);
+
+			return modelAndView;
+		}
+
+		logger.info("saving employee: " + employee);
 		employeeService.saveEmployee(employee);
 
-		return "redirect:/employee/list";
+		return new ModelAndView("redirect:/employee/list");
 	}
 
 	@GetMapping("/update")

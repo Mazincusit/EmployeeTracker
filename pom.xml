@@ -70,6 +70,18 @@
 			<version>1.16.10</version>
 			<scope>provided</scope>
 		</dependency>
+
+		<!-- JSR303 validation dependencies-->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.1.0.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.3.0.Final</version>
+		</dependency>
 	</dependencies>
 
 	<build>

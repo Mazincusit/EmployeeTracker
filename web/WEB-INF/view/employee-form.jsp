@@ -4,6 +4,9 @@
 <html>
 <head>
     <title><spring:message code="label.saveEmployee" /></title>
+
+    <link rel="stylesheet" type="text/css"
+          href="${pageContext.request.contextPath}/css/styles.css">
 </head>
 <body>
     <!-- Header -->
@@ -18,12 +21,18 @@
             <tbody>
                 <tr>
                     <td><label><spring:message code="label.firstName" />:</label></td>
-                    <td><form:input path="firstName" /></td>
+                    <td>
+                        <form:input path="firstName" />
+                        <form:errors path="firstName" cssClass="error" />
+                    </td>
                 </tr>
 
                 <tr>
                     <td><label><spring:message code="label.lastName" />:</label></td>
-                    <td><form:input path="lastName" /></td>
+                    <td>
+                        <form:input path="lastName" />
+                        <form:errors path="lastName" cssClass="error" />
+                    </td>
                 </tr>
 
                 <tr>
@@ -32,12 +41,16 @@
                         <form:select path="position">
                             <form:options items="${positions}" />
                         </form:select>
+                        <form:errors path="position" cssClass="error" />
                     </td>
                 </tr>
 
                 <tr>
                     <td><label><spring:message code="label.email" />:</label></td>
-                    <td><form:input path="email" /></td>
+                    <td>
+                        <form:input path="email" />
+                        <form:errors path="email" cssClass="error" />
+                    </td>
                 </tr>
 
                 <tr>
