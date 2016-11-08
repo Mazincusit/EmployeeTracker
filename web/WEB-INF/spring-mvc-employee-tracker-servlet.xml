@@ -25,6 +25,7 @@
 
 	<!-- Spring resource mapping -->
 	<mvc:resources mapping="/css/**" location="classpath:/WEB-INF/css/" />
+	<mvc:resources mapping="/images/**" location="classpath:/WEB-INF/images/" />
 
     <!-- Spring MVC view resolver -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
